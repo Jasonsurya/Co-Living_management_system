@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo Co-Living Pagul.png";
 import HeroImage from "../assets/HeroSection.jpeg";
 import KamarTidur from "../assets/Kamar_Tidur.jpeg";
@@ -30,6 +31,7 @@ const kontakData = {
 
 export default function LandingPage() {
   // 2. SEMUA LOGIKA STATE DAN FUNGSI HARUS DI SINI (SEBELUM RETURN)
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = 2; // Karena ada 6 gambar dan tampil 3 per halaman (6 / 3 = 2 halaman)
 
@@ -46,7 +48,7 @@ export default function LandingPage() {
   };
 
   const handleBukaLogin = () => {
-    window.location.href = '/Login'; 
+    navigate("/login"); 
   };  
 
   return (
@@ -75,7 +77,7 @@ export default function LandingPage() {
           </div>
 
           <div>
-            
+
             <button onClick={handleBukaLogin} className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-xs transition-all active:scale-95 cursor-pointer">
               Masuk
             </button>
